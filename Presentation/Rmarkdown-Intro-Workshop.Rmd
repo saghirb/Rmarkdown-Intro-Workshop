@@ -1,0 +1,164 @@
+---
+title: "Introduction to R Markdown - Workshop"
+author: "Saghir Bashir"
+date: "`r format(Sys.time(), '%a %d %b %Y (%H:%M:%S)')`"
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+    css: [tweaks.css, default, robot-fonts]
+    self_contained: true
+    # lib_dir: libs
+    # https://github.com/gnab/remark/wiki/Configuration
+    nature:
+      ratio: 16:9
+      highlightStyle: default
+      highlightLanguage: r
+      highlightLines: true
+      highlightSpans: false
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+    seal: false
+---
+
+```{r setup, include=FALSE}
+library(here)
+library(knitr)
+library(kableExtra)
+
+# Copied & modified from: https://github.com/gadenbuie/gentle-ggplot2 (Index.Rmd)
+#
+# Thanks to Garrick Aden-Buie (https://www.garrickadenbuie.com/) for sharing :)
+#
+
+knitr::opts_chunk$set(fig.width=4.4, fig.height=3.2, fig.retina=4,
+                      out.width = "100%",
+                      message=FALSE, warning=FALSE, cache = TRUE, 
+                      autodep = TRUE, hiline=TRUE)
+
+knitr::opts_hooks$set(fig.callout = function(options) {
+  if (options$fig.callout) {
+    options$echo <- FALSE
+    options$out.height <- "99%"
+    options$fig.width <- 16
+    options$fig.height <- 8
+  }
+  options
+})
+
+options(
+  htmltools.dir.version = FALSE, 
+  width = 90,
+  # max.print = 9999,
+  knitr.table.format = "html"
+)
+
+```
+
+class: middle, center
+
+<div class="rlogo-left-top-M"></div> 
+<div class="Rmarkdown-hex-right-top-M"></div> 
+
+# Workshop
+
+# Introduction to R Markdown
+
+<br>
+
+### Saghir Bashir<br><br>14th June 2019
+
+---
+class: inverse, middle, center
+
+# Relax
+
+# Experiment
+
+# Make Mistakes
+
+# Learn
+
+# Enjoy
+
+---
+class: middle, center
+
+<div class="rlogo-left-top-M"></div> 
+<div class="Rmarkdown-hex-right-top-M"></div> 
+
+# Outline
+
+## Motivation & R Markdown
+
+## HTML Presentations
+
+## PDF Articles
+
+## Beautiful Tables
+
+## Summary
+
+---
+class: inverse
+<div class="Rmarkdown-hex-right-top-M"></div> 
+
+# Prerequisites
+
+## Latest versions of: 
+
+### &nbsp;&nbsp;&nbsp; 1. R: https://cran.r-project.org
+
+### &nbsp;&nbsp;&nbsp; 2. RStudio: https://www.rstudio.com/products/rstudio
+
+
+
+---
+class: inverse
+
+<div class="Rmarkdown-hex-right-top-M"></div> 
+
+# Summary
+
+## R Markdown
+
+### &nbsp;&nbsp;&nbsp; - 
+
+### &nbsp;&nbsp;&nbsp; - 
+
+### &nbsp;&nbsp;&nbsp; - 
+
+## Reproducible Workflow
+
+### &nbsp;&nbsp;&nbsp; - The rewards and benefits are big!
+
+---
+class: inverse
+
+.center[
+# Feedback
+]
+
+## Please send your feedback or comments via:
+
+### &nbsp;&nbsp;&nbsp; - https://github.com/saghirb/Rmarkdown-Intro-Workshop or
+
+### &nbsp;&nbsp;&nbsp; - https://twitter.com/ilustat
+
+<br>
+
+.right[
+## Thanks!
+]
+---
+class: inverse, center, middle
+
+## This work is licensed under the
+
+## Creative Commons Attribution-Non Commercial 4.0 International License.
+
+## To view a copy of this license, visit
+
+## http://creativecommons.org/licenses/by-nc/4.0/
+
+
+

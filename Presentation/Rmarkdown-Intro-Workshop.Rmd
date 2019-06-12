@@ -32,7 +32,7 @@ library(kableExtra)
 
 knitr::opts_chunk$set(fig.width=4.4, fig.height=3.2, fig.retina=4,
                       out.width = "100%",
-                      message=FALSE, warning=FALSE, cache = TRUE, 
+                      message=FALSE, warning=FALSE, cache = FALSE, 
                       autodep = TRUE, hiline=TRUE)
 
 knitr::opts_hooks$set(fig.callout = function(options) {
@@ -56,10 +56,12 @@ options(
 
 class: middle, center
 
-<div class="rlogo-left-top-M"></div> 
-<div class="Rmarkdown-hex-right-top-M"></div> 
+<div class="rlogo-left-top"></div> 
+<div class="Rmarkdown-hex-right-top"></div> 
 
-# Workshop
+&nbsp;
+
+<br><br>
 
 # Introduction to R Markdown
 
@@ -83,24 +85,24 @@ class: inverse, middle, center
 ---
 class: middle, center
 
-<div class="rlogo-left-top-M"></div> 
-<div class="Rmarkdown-hex-right-top-M"></div> 
+<div class="rlogo-left-top"></div> 
+<div class="Rmarkdown-hex-right-top"></div> 
 
 # Outline
 
-## Motivation & R Markdown
+## R Markdown Examples
 
-## HTML Presentations
+## What is R Markdown?
 
-## PDF Articles
+## HTML Presentation
 
-## Beautiful Tables
+## PDF Document
 
 ## Summary
 
 ---
 class: inverse
-<div class="Rmarkdown-hex-right-top-M"></div> 
+<div class="rlogo-right-top"></div> 
 
 # Prerequisites
 
@@ -110,12 +112,97 @@ class: inverse
 
 ### &nbsp;&nbsp;&nbsp; 2. RStudio: https://www.rstudio.com/products/rstudio
 
+---
+class: inverse, center, middle
+
+<div class="Rmarkdown-hex-right-top"></div> 
+
+# What is R Markdown?
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div> 
+
+# HTML Analysis Example
+
+```{r eg-HTML-01, echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/ScreenShots/Rmarkdown-HTML-Example-01.png")
+```
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div> 
+
+# HTML Website Example
+
+```{r eg-HTML-02, echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/ScreenShots/Rmarkdown-HTML-Example-02.png")
+```
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div> 
+
+# HTML Book Example
+
+```{r eg-HTML-03, echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/ScreenShots/Rmarkdown-HTML-Example-03.png")
+```
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div> 
+
+# PDF Article Example
+
+```{r eg-PDF-01, echo=FALSE, out.width="70%"}
+knitr::include_graphics("images/ScreenShots/Rmarkdown-PDF-Example-01.png")
+```
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div> 
+
+# PDF Book Example
+
+```{r eg-PDF-02, echo=FALSE, out.width="70%"}
+knitr::include_graphics("images/ScreenShots/Rmarkdown-PDF-Example-02.png")
+```
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div> 
+
+# PDF Presentation Example
+
+```{r eg-PDF-03, echo=FALSE, out.width="65%"}
+knitr::include_graphics("images/ScreenShots/Rmarkdown-PDF-Example-03.png")
+```
+
+
+
+---
+class: center
+
+# Example:  
+
+---
+class: center, middle
+
+```{r egleaflet, echo=FALSE}
+# library(leaflet)
+# leaflet(height = "90%", width = "90%") %>% 
+#   addTiles() %>% 
+#   setView(-9.133536, 38.713959, zoom = 16) %>% 
+#   addCircles(-9.133536, 38.713959, radius = 80) %>% 
+#   addPopups(-9.133536, 38.713959, "Castelo de São Jorge") 
+```
 
 
 ---
 class: inverse
 
-<div class="Rmarkdown-hex-right-top-M"></div> 
+<div class="Rmarkdown-hex-right-top"></div> 
 
 # Summary
 

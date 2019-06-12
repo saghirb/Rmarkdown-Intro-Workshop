@@ -1,0 +1,9 @@
+setup	::	$	$<-	if	library	options
+egHTML01	::
+egHTML02	::
+egHTML03	::
+egleaflet	%>%	addCircles	addPopups	addTiles	leaflet	library	setView
+eg-HTML-01	::
+eg-HTML-02	::
+eg-HTML-03	::
+eg-PDF-01	::

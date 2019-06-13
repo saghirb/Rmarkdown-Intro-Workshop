@@ -117,13 +117,13 @@ class: inverse, center, middle
 
 <div class="Rmarkdown-hex-right-top"></div> 
 
-# What is R Markdown?
+# R Markdown Examples
 
 ---
 class: center
 <div class="Rmarkdown-hex-right-top"></div> 
 
-# HTML Analysis Example
+# HTML "Analysis" Document
 
 ```{r eg-HTML-01, echo=FALSE, out.width="80%"}
 knitr::include_graphics("images/ScreenShots/Rmarkdown-HTML-Example-01.png")
@@ -133,7 +133,7 @@ knitr::include_graphics("images/ScreenShots/Rmarkdown-HTML-Example-01.png")
 class: center
 <div class="Rmarkdown-hex-right-top"></div> 
 
-# HTML Website Example
+# HTML Website
 
 ```{r eg-HTML-02, echo=FALSE, out.width="80%"}
 knitr::include_graphics("images/ScreenShots/Rmarkdown-HTML-Example-02.png")
@@ -143,7 +143,7 @@ knitr::include_graphics("images/ScreenShots/Rmarkdown-HTML-Example-02.png")
 class: center
 <div class="Rmarkdown-hex-right-top"></div> 
 
-# HTML Book Example
+# HTML Book
 
 ```{r eg-HTML-03, echo=FALSE, out.width="80%"}
 knitr::include_graphics("images/ScreenShots/Rmarkdown-HTML-Example-03.png")
@@ -153,7 +153,7 @@ knitr::include_graphics("images/ScreenShots/Rmarkdown-HTML-Example-03.png")
 class: center
 <div class="Rmarkdown-hex-right-top"></div> 
 
-# PDF Article Example
+# PDF Article
 
 ```{r eg-PDF-01, echo=FALSE, out.width="70%"}
 knitr::include_graphics("images/ScreenShots/Rmarkdown-PDF-Example-01.png")
@@ -163,7 +163,7 @@ knitr::include_graphics("images/ScreenShots/Rmarkdown-PDF-Example-01.png")
 class: center
 <div class="Rmarkdown-hex-right-top"></div> 
 
-# PDF Book Example
+# PDF Book
 
 ```{r eg-PDF-02, echo=FALSE, out.width="70%"}
 knitr::include_graphics("images/ScreenShots/Rmarkdown-PDF-Example-02.png")
@@ -173,18 +173,160 @@ knitr::include_graphics("images/ScreenShots/Rmarkdown-PDF-Example-02.png")
 class: center
 <div class="Rmarkdown-hex-right-top"></div> 
 
-# PDF Presentation Example
+# PDF Presentation
 
 ```{r eg-PDF-03, echo=FALSE, out.width="65%"}
 knitr::include_graphics("images/ScreenShots/Rmarkdown-PDF-Example-03.png")
 ```
 
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div> 
+
+# HTML Presentation
+
+```{r eg-HTML-04, echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/ScreenShots/Rmarkdown-HTML-Example-04.png")
+```
+
+---
+<div class="Rmarkdown-hex-right-top"></div> 
+
+.center[# More R Markdown]
+
+.pull-left[
+## Formats
+
+### &nbsp;&nbsp;&nbsp; - HTML
+
+### &nbsp;&nbsp;&nbsp; - PDF
+
+### &nbsp;&nbsp;&nbsp; - Word & ODF 
+
+### &nbsp;&nbsp;&nbsp; - PowerPoint & ODF
+]
+
+.pull-right[
+## Other
+
+### &nbsp;&nbsp;&nbsp; - Dashboards
+
+### &nbsp;&nbsp;&nbsp; - Web Applications
+
+### &nbsp;&nbsp;&nbsp; - HTML Notebooks
+
+### &nbsp;&nbsp;&nbsp; - CVs
+]
+
+---
+class: inverse, center, middle
+
+<div class="Rmarkdown-hex-right-top"></div> 
+
+# What is R Markdown?
+
+---
+<div class="Rmarkdown-hex-right-top"></div> 
+
+.center[# What is Markdown?]
+
+## Special computer language ("Markup")
+
+### &nbsp;&nbsp;&nbsp; - Plain text file with special syntax.
+
+### &nbsp;&nbsp;&nbsp; - Human readable.
+
+### &nbsp;&nbsp;&nbsp; - "Tags" define Structure & elements.
+
+### &nbsp;&nbsp;&nbsp; - Converts to HTML, PDF, ...
+
+---
+<div class="Rmarkdown-hex-right-top"></div> 
+
+.center[# Markdown Example]
+
+.pull-left[
+```
+# Markdown Example
+
+Paragraphs are separated by a blank line.
+
+## Format text
+
+Some _italic_, **bold** and `monospace` text.
+
+Bullet list
++ Apples.
++ Oranges.
++ Pears
+
+An [example link](https://github.com/saghirb)..
+```
+]
+--
+.pull-right[
+### Markdown Example
+
+Paragraphs are separated by a blank line.
+
+#### Format text
+
+Some _italic_, **bold** and `monospace` text.
+
+Bullet list
++ Apples.
++ Oranges.
++ Pears
+
+An [example link](https://github.com/saghirb).
+]
 
 
 ---
-class: center
+<div class="Rmarkdown-hex-right-top"></div> 
 
-# Example:  
+.center[# What is R Markdown?]
+
+## A mix of R and markdown
+
+### &nbsp;&nbsp;&nbsp; - R code and documentation in one place.
+
+### &nbsp;&nbsp;&nbsp; - Great for doing reproducible research.
+
+### &nbsp;&nbsp;&nbsp; - Great for collaborating and sharing.
+
+### &nbsp;&nbsp;&nbsp; - Converts to HTML, PDF, websites, article, books, ...
+
+
+---
+<div class="Rmarkdown-hex-right-top"></div> 
+
+.center[# R Markdown Example]
+
+.pull-left[
+```{r comment=NA,echo=FALSE}
+cat('Some _summary statistics_ for the **R**\n`ChickWeight` data.')
+
+cat('```{r cwSumary}```')
+```
+
+
+
+]
+--
+.pull-right[
+Some _summary statistics_ for the **R** `ChickWeight` data.
+
+```{r cwSumary, echo=TRUE}
+library(data.table)
+cw <- as.data.table(ChickWeight)
+cw[Time %in% c(0, 21)][ 
+  , .(N = .N, Mean = mean(weight), 
+      SD = sd(weight)), by = .(Diet, Time)][ 
+    order(Diet, Time)] 
+```
+
+]
 
 ---
 class: center, middle

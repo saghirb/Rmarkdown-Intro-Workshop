@@ -17,6 +17,7 @@ output:
       highlightSpans: false
       countIncrementalSlides: false
       slideNumberFormat: "%current%"
+      collapse: true
     seal: false
 ---
 
@@ -94,7 +95,7 @@ class: middle, center
 
 ## What is R Markdown?
 
-## HTML Presentation
+## HTML Document
 
 ## PDF Document
 
@@ -230,6 +231,8 @@ class: inverse, center, middle
 
 .center[# What is Markdown?]
 
+<br>
+
 ## Special computer language ("Markup")
 
 ### &nbsp;&nbsp;&nbsp; - Plain text file with special syntax.
@@ -287,6 +290,8 @@ An [example link](https://github.com/saghirb).
 
 .center[# What is R Markdown?]
 
+<br>
+
 ## A mix of R and markdown
 
 ### &nbsp;&nbsp;&nbsp; - R code and documentation in one place.
@@ -304,29 +309,149 @@ An [example link](https://github.com/saghirb).
 .center[# R Markdown Example]
 
 .pull-left[
-```{r comment=NA,echo=FALSE}
-cat('Some _summary statistics_ for the **R**\n`ChickWeight` data.')
-
-cat('```{r cwSumary}```')
+```{r comment=NA, echo=FALSE}
+cat('--- 
+title: "R Markdown Demo"
+author: "Saghir Bashir"
+date: "13/06/2019"
+output: html_document
+---\n\n_Using_  **R** as a calculator.\n\n```{r Rcalc}
+2+5
+8**2\n```
+\nPlot the `ChickWeight` data.\n```{r plotCW, echo=FALSE, out.width="80%"}
+with(ChickWeight, boxplot(weight ~ Time))\n```')
 ```
-
-
 
 ]
 --
 .pull-right[
-Some _summary statistics_ for the **R** `ChickWeight` data.
+_Using_  **R** as a calculator.
 
-```{r cwSumary, echo=TRUE}
-library(data.table)
-cw <- as.data.table(ChickWeight)
-cw[Time %in% c(0, 21)][ 
-  , .(N = .N, Mean = mean(weight), 
-      SD = sd(weight)), by = .(Diet, Time)][ 
-    order(Diet, Time)] 
+```{r Rcalc}
+(2+5)**2
 ```
 
+Plot the `ChickWeight` data.
+
+```{r plotCW, echo=FALSE, out.width="80%"}
+with(ChickWeight, boxplot(weight ~ Time))
+```
 ]
+
+---
+<div class="Rmarkdown-hex-right-top"></div> 
+
+.center[# R Markdown Explained - YAML]
+
+.pull-left[
+```{r comment=NA, echo=FALSE, highlight.output=c(1:6)}
+cat('--- 
+title: "R Markdown Demo"
+author: "Saghir Bashir"
+date: "13/06/2019"
+output: html_document
+---\n\n_Using_  **R** as a calculator.\n\n```{r Rcalc}
+2+5
+8**2\n```
+\nPlot the `ChickWeight` data.\n\n```{r plotCW, echo=FALSE, out.width="80%"}
+with(ChickWeight, boxplot(weight ~ Time))\n```')
+```
+]
+
+.pull-right[
+## File extension is `.Rmd`
+
+### &nbsp;&nbsp;&nbsp; - e.g. `My-Report.Rmd`
+
+## Top is YAML header
+
+### &nbsp;&nbsp;&nbsp; - Descriptive information.
+
+### &nbsp;&nbsp;&nbsp; - Format & Style.
+]
+
+---
+<div class="Rmarkdown-hex-right-top"></div> 
+
+.center[# R Markdown Explained - Markdown]
+
+.pull-left[
+```{r comment=NA, echo=FALSE, highlight.output=c(8, 15)}
+cat('--- 
+title: "R Markdown Demo"
+author: "Saghir Bashir"
+date: "13/06/2019"
+output: html_document
+---\n\n_Using_  **R** as a calculator.\n\n```{r Rcalc}
+2+5
+8**2\n```
+\nPlot the `ChickWeight` data.\n\n```{r plotCW, echo=FALSE, out.width="80%"}
+with(ChickWeight, boxplot(weight ~ Time))\n```\n')
+```
+]
+
+.pull-right[
+## Below the YAML header
+
+### - Markdown code.
+
+]
+
+---
+<div class="Rmarkdown-hex-right-top"></div> 
+
+.center[# R Markdown Explained - R Chunks]
+
+.pull-left[
+```{r comment=NA, echo=FALSE, highlight.output=c(10:13, 17, 18)}
+cat('--- 
+title: "R Markdown Demo"
+author: "Saghir Bashir"
+date: "13/06/2019"
+output: html_document
+---\n\n_Using_  **R** as a calculator.\n\n```{r Rcalc}
+2+5
+8**2\n```\n\nPlot the `ChickWeight` data.\n\n```{r plotCW, echo=FALSE, out.width="80%"}
+with(ChickWeight, boxplot(weight ~ Time))\n```\n')
+```
+]
+
+.pull-right[
+## Below the YAML header
+
+### - Markdown code.
+
+### - R code chunks with:
+
+### &nbsp;&nbsp;&nbsp; - unique names.
+
+### &nbsp;&nbsp;&nbsp; - chunk options.
+]
+
+
+---
+class: inverse, center, middle
+
+<div class="Rmarkdown-hex-right-top"></div> 
+
+# HTML Document
+
+---
+class: inverse, center, middle
+
+<div class="Rmarkdown-hex-right-top"></div> 
+
+## install.packages("kableExtra")
+
+## install.packages("rticles")
+
+## install.packages("tinytex")
+
+## tinytex::install_tinytex()
+
+
+
+
 
 ---
 class: center, middle

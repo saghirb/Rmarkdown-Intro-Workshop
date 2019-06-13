@@ -5,4 +5,5 @@
 notes.txt
 *.html
 *.pdf
-/Exercises/*.Rmd
+Exercises/*.Rmd
+!Exercises/*.html

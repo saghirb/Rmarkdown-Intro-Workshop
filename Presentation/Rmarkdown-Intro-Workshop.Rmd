@@ -616,9 +616,9 @@ class: inverse
 
 ### &nbsp;&nbsp;&nbsp; 2) Unzip and double click "CW-Summary.Rproj" file.
 
-### &nbsp;&nbsp;&nbsp; 3) Create a new Rmarkdown (HTML) file called "CW-Summary.Rmd" 
+### &nbsp;&nbsp;&nbsp; 3) Create a new Rmarkdown (HTML) file called "CW-Report.Rmd" 
 
-### &nbsp;&nbsp;&nbsp; 4) Recreate "CW-Summary-Aim.html"
+### &nbsp;&nbsp;&nbsp; 4) Recreate "CW-Report-Target.html"
 
 
 ---

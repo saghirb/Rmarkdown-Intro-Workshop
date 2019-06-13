@@ -292,7 +292,7 @@ An [example link](https://github.com/saghirb).
 
 <br>
 
-## A mix of R and markdown
+## A mix of R programming and markdown.
 
 ### &nbsp;&nbsp;&nbsp; - R code and documentation in one place.
 
@@ -449,8 +449,176 @@ class: inverse, center, middle
 
 ## tinytex::install_tinytex()
 
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div>
 
+# Create a New RStudio Project
 
+.left-plot[
+```{r 01-Rmarkdown, echo=FALSE, out.width="90%"}
+knitr::include_graphics("images/ScreenShots/01-Rmarkdown-Screens.png")
+```
+]
+.right-plot[
+```{r 02-Rmarkdown, echo=FALSE, out.width="90%"}
+knitr::include_graphics("images/ScreenShots/02-Rmarkdown-Screens.png")
+```
+]
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div>
+
+# Select "New Project"
+
+```{r 03-Rmarkdown, echo=FALSE, out.width="70%"}
+knitr::include_graphics("images/ScreenShots/03-Rmarkdown-Screens.png")
+```
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div>
+
+# Define Directory Location
+
+```{r 05-Rmarkdown, echo=FALSE, out.width="70%"}
+knitr::include_graphics("images/ScreenShots/05-Rmarkdown-Screens.png")
+```
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div>
+
+# New Project Created
+
+```{r 06-Rmarkdown, echo=FALSE, out.width="47%"}
+knitr::include_graphics("images/ScreenShots/06-Rmarkdown-Screens.png")
+```
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div>
+
+# Create R Markdown Document
+
+.left-plot[
+```{r 07-Rmarkdown, echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/ScreenShots/07-Rmarkdown-Screens.png")
+```
+]
+.right-plot[
+```{r 08-Rmarkdown, echo=FALSE, out.width="75%"}
+knitr::include_graphics("images/ScreenShots/08-Rmarkdown-Screens.png")
+```
+]
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div>
+
+# Untitled and Unsaved 
+
+```{r 09-Rmarkdown, echo=FALSE, out.width="70%"}
+knitr::include_graphics("images/ScreenShots/09-Rmarkdown-Screens.PNG")
+```
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div>
+
+# Save as .Rmd
+
+```{r 10-Rmarkdown, echo=FALSE, out.width="60%"}
+knitr::include_graphics("images/ScreenShots/10-Rmarkdown-Screens.png")
+```
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div>
+
+# Click "Knit" to Create HTML File 
+
+```{r 11-Rmarkdown, echo=FALSE, out.width="70%"}
+knitr::include_graphics("images/ScreenShots/11-Rmarkdown-Screens.png")
+```
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div>
+
+# HTML Document - Top
+
+```{r 12-Rmarkdown, echo=FALSE, out.width="60%"}
+knitr::include_graphics("images/ScreenShots/12-Rmarkdown-Screens.png")
+```
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div>
+
+# HTML Document - Bottom
+
+```{r 13-Rmarkdown, echo=FALSE, out.width="60%"}
+knitr::include_graphics("images/ScreenShots/13-Rmarkdown-Screens.png")
+```
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div>
+
+# You Can "Knit" to PDF
+
+```{r 14-Rmarkdown, echo=FALSE, out.width="70%"}
+knitr::include_graphics("images/ScreenShots/14-Rmarkdown-Screens.png")
+```
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div>
+
+# PDF Document
+
+```{r 15-Rmarkdown, echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/ScreenShots/15-Rmarkdown-Screens.png")
+```
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div>
+
+# Change Theme & Style
+
+```{r 16-Rmarkdown, echo=FALSE, out.width="90%"}
+knitr::include_graphics("images/ScreenShots/16-Rmarkdown-Screens.png")
+```
+
+---
+class: center
+<div class="Rmarkdown-hex-right-top"></div>
+
+# Updated Theme 
+
+```{r 17-Rmarkdown, echo=FALSE, out.width="70%"}
+knitr::include_graphics("images/ScreenShots/17-Rmarkdown-Screens.png")
+```
+
+---
+class: inverse
+
+<div class="Rmarkdown-hex-right-top"></div> 
+
+# Exercise
+
+<br> 
+
+### &nbsp;&nbsp;&nbsp; 1) Download https:ilustat.com/shared/Rmd-1.zip 
+
+### &nbsp;&nbsp;&nbsp; 2) Unzip and double click "CW-Summary.Rproj" file.
+
+### &nbsp;&nbsp;&nbsp; 3) Create a new Rmarkdown (HTML) file called "CW-Summary.Rmd" 
+
+### &nbsp;&nbsp;&nbsp; 4) Recreate "CW-Summary-Aim.html"
 
 
 ---

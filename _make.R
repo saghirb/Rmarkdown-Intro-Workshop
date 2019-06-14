@@ -11,6 +11,9 @@ rmarkdown::render(here("Presentation", "Rmarkdown-Intro-Workshop.Rmd"),
 rmarkdown::render(here("Exercises", "CW-Report-Target.Rmd"),
                   clean = TRUE, output_dir = here("Exercises"))
 
+rmarkdown::render(here("Exercises", "CW-Slides-Target.Rmd"),
+                  clean = TRUE, output_dir = here("Exercises"))
+
 # Create a PDF version of the slides to share
 library(webshot)
 htmlSlides <- paste0("file://",
@@ -43,6 +46,9 @@ download.file("https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.p
 file.copy(here("Exercises", "CW-Report-Target.html"),
           here("Share", "Exercise"), overwrite = TRUE)
 
+file.copy(here("Exercises", "CW-Slides-Target.html"),
+          here("Share", "Exercise"), overwrite = TRUE)
+
 file.copy(here("Exercises", "ChickWeight.csv"),
           here("Share", "Exercise"), overwrite = TRUE)
 
@@ -54,6 +60,6 @@ file.rename(here("Share", "Exercise", "Exercise.Rproj"),
 # Using here() function with zip results in full paths in the zip files :(
 # Not beautiful: Using setwd to overcome the full paths issue above.
 setwd(here())
-zip(here("Share", "Rmd-1.zip"), "./Share/", extras = "-FS")
+zip(here("Share", "RmarkdownWS.zip"), "./Share/", extras = "-FS")
 
 setwd(here())

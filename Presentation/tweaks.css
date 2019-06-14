@@ -202,6 +202,54 @@ content: "";
     background-image: url(images/Rmarkdown-hex.svg);
 }
 
+.knitr-hex-left-top {
+content: "";
+    position: absolute;
+    top:     40px;
+    left:    60px;
+    height: 120px;
+    width:  120px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(images/knitr-hex.png);
+}
+
+.knitr-hex-right-top {
+content: "";
+    position: absolute;
+    top:     40px;
+    right:   60px;
+    height: 120px;
+    width:  120px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(images/knitr-hex.png);
+}
+
+.knitr-hex-left-bottom {
+content: "";
+    position: absolute;
+    bottom:  40px;
+    left:    60px;
+    height: 120px;
+    width:  120px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(images/knitr-hex.png);
+}
+
+.knitr-hex-right-bottom {
+content: "";
+    position: absolute;
+    bottom:  40px;
+    right:   60px;
+    height: 120px;
+    width:  120px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(images/knitr-hex.png);
+}
+
 .xaringan-hex-left-top {
 content: "";
     position: absolute;

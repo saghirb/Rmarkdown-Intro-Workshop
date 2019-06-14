@@ -95,9 +95,9 @@ class: middle, center
 
 ## What is R Markdown?
 
-## HTML Document
+## HTML & PDF Documents
 
-## PDF Document
+## Pretty Tables
 
 ## Summary
 
@@ -204,7 +204,7 @@ knitr::include_graphics("images/ScreenShots/Rmarkdown-HTML-Example-04.png")
 
 ### &nbsp;&nbsp;&nbsp; - Word & ODF 
 
-### &nbsp;&nbsp;&nbsp; - PowerPoint & ODF
+### &nbsp;&nbsp;&nbsp; - Power Point & ODF
 ]
 
 .pull-right[
@@ -608,30 +608,182 @@ class: inverse
 
 <div class="Rmarkdown-hex-right-top"></div> 
 
-# Exercise
+# R Markdown Cheatsheet
+
+.left-plot[
+```{r RmdCheatSheet, echo=FALSE, out.width="90%"}
+knitr::include_graphics("images/ScreenShots/Screenshot-Rmd-Cheatsheet.png")
+```
+]
+.right-plot[
+### - Useful to find R markdown "tags".
+
+### - Use it for the exercises.
+
+### - Lots of other useful information too.
+
+<br><br>
+
+**Source: https://www.rstudio.com/resources/cheatsheets/**
+]
+
+---
+class: inverse, middle, center
+
+<div class="knitr-hex-right-top"></div> 
+
+# Pretty Tables
+
+---
+<div class="knitr-hex-right-top"></div> 
+
+# Objective
+
+.pull-left[
+```{r dummyData, echo=FALSE}
+library(data.table)
+sData <- fread("
+Placebo, Baseline, 182, 27.4, 3.23
+Placebo, Final, 157, 25.6, 4.11
+Active, Baseline, 179, 26.7, 3.45
+Active, Final, 145, 20.7, 4.27
+", 
+col.names = c("Treatment", "Visit", "N", "Mean", "S.D.")
+)
+```
+## Before
+```{r before}
+sData
+```
+
+]
+.pull-right[
+# After
+```{r after, echo = FALSE}
+library(magrittr)
+library(knitr)
+library(kableExtra)
+sData %>% 
+  kable(align="lcrrr", digits=c(0, 0, 0, 1, 2))  %>% 
+  kable_styling(bootstrap_options="striped", font_size = 24, full_width=TRUE) %>% 
+  column_spec(1:5, width = "4em") %>% 
+  collapse_rows(1, valign = "top")
+```
+]
+
+---
+<div class="knitr-hex-right-top"></div> 
+
+# Use `knitr::kable`
+
+.pull-left[
+```{r before3}
+library(magrittr) #<<
+library(knitr) #<<
+sData %>%  #<<
+  kable()  #<<
+```
+]
+.pull-right[
+```{r after3, echo = TRUE}
+library(magrittr)
+library(knitr)
+sData %>% 
+ kable(align="lcrrr", digits=c(0, 0, 0, 1, 2)) #<<
+```
+]
+
+---
+<div class="knitr-hex-right-top"></div> 
+
+# Use `kableExtra` Package
+
+.pull-left[
+```{r before4}
+library(magrittr)
+library(knitr)
+library(kableExtra)
+sData %>% 
+ kable(align="lcrrr", digits=c(0, 0, 0, 1, 2))  %>% 
+ kable_styling(bootstrap_options="striped",  #<<
+               full_width=TRUE)  #<<
+```
+]
+.pull-right[
+```{r after4}
+library(magrittr)
+library(knitr)
+library(kableExtra)
+sData %>% 
+ kable(align="lcrrr", digits=c(0, 0, 0, 1, 2))  %>% 
+ kable_styling(bootstrap_options="striped", 
+               full_width=TRUE) %>% 
+ column_spec(1:5, width = "4em")  #<<
+```
+]
+
+---
+<div class="knitr-hex-right-top"></div> 
+
+# Final Table
+
+.pull-left[
+```{r before5}
+library(magrittr)
+library(knitr)
+library(kableExtra)
+sData %>% 
+ kable(align="lcrrr", digits=c(0, 0, 0, 1, 2))  %>% 
+ kable_styling(bootstrap_options="striped", 
+               full_width=TRUE) %>% 
+ column_spec(1:5, width = "4em") %>% 
+ collapse_rows(1, valign = "top")  #<<
+```
+
+]
+.pull-right[
+## We started with
+```{r after5}
+sData 
+```
+]
+
+---
+class: inverse
+
+<div class="Rmarkdown-hex-right-top"></div> 
+
+# Exercise (i)
 
 <br> 
 
-### &nbsp;&nbsp;&nbsp; 1) Download https:ilustat.com/shared/Rmd-1.zip 
+### &nbsp;&nbsp;&nbsp; 1) Download https://ilustat.com/shared/RmarkdownWS.zip
 
 ### &nbsp;&nbsp;&nbsp; 2) Unzip and double click "CW-Summary.Rproj" file.
 
-### &nbsp;&nbsp;&nbsp; 3) Create a new Rmarkdown (HTML) file called "CW-Report.Rmd" 
+### &nbsp;&nbsp;&nbsp; 3) Create a new Rmarkdown file called "CW-Report.Rmd" 
 
 ### &nbsp;&nbsp;&nbsp; 4) Recreate "CW-Report-Target.html"
 
-
 ---
-class: center, middle
+class: inverse
 
-```{r egleaflet, echo=FALSE}
-# library(leaflet)
-# leaflet(height = "90%", width = "90%") %>% 
-#   addTiles() %>% 
-#   setView(-9.133536, 38.713959, zoom = 16) %>% 
-#   addCircles(-9.133536, 38.713959, radius = 80) %>% 
-#   addPopups(-9.133536, 38.713959, "Castelo de São Jorge") 
-```
+<div class="Rmarkdown-hex-right-top"></div> 
+
+# Exercise (ii)
+
+<br> 
+
+### Creating a HTML presention
+
+
+### &nbsp;&nbsp;&nbsp; 1) Create a new "Presentation" from R Markdown.
+
+### &nbsp;&nbsp;&nbsp; 2) Select "HTML (ioslides)" style.
+
+### &nbsp;&nbsp;&nbsp; 3) Save as "CW-Slides.Rmd" 
+
+### &nbsp;&nbsp;&nbsp; 4) Recreate "CW-Slides-Target.html"
 
 
 ---
@@ -643,13 +795,13 @@ class: inverse
 
 ## R Markdown
 
-### &nbsp;&nbsp;&nbsp; - 
+### &nbsp;&nbsp;&nbsp; - R code and documentation in one place.
 
-### &nbsp;&nbsp;&nbsp; - 
+### &nbsp;&nbsp;&nbsp; - Great for doing reproducible research.
 
-### &nbsp;&nbsp;&nbsp; - 
+### &nbsp;&nbsp;&nbsp; - Great for collaborating and sharing.
 
-## Reproducible Workflow
+### &nbsp;&nbsp;&nbsp; - A big range of possible outputs.
 
 ### &nbsp;&nbsp;&nbsp; - The rewards and benefits are big!
 

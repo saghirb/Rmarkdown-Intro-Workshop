@@ -5,14 +5,30 @@ library(here)
 here()
 
 # Render the presentation and exercises.
-rmarkdown::render(here("Presentation", "Rmarkdown-Intro-Workshop.Rmd"),
-                  clean = TRUE, output_dir = here("Presentation"))
+rmarkdown::render(here("Exercises", "CW-Report-Target-PDF.Rmd"),
+                  clean = TRUE, envir = new.env(),
+                  output_dir = here("Exercises"))
 
-rmarkdown::render(here("Exercises", "CW-Report-Target.Rmd"),
-                  clean = TRUE, output_dir = here("Exercises"))
+rmarkdown::render(here("Presentation", "Rmarkdown-Intro-Workshop.Rmd"),
+                  clean = TRUE, envir = new.env(),
+                  output_dir = here("Presentation"))
+
+rmarkdown::render(here("Exercises", "CW-Report-Target-HTML.Rmd"),
+                  clean = TRUE, envir = new.env(),
+                  output_dir = here("Exercises"))
+
+rmarkdown::render(here("Exercises", "CW-Report-Target-prettydoc.Rmd"),
+                  clean = TRUE, envir = new.env(),
+                  output_dir = here("Exercises"))
 
 rmarkdown::render(here("Exercises", "CW-Slides-Target.Rmd"),
-                  clean = TRUE, output_dir = here("Exercises"))
+                  clean = TRUE, envir = new.env(),
+                  output_dir = here("Exercises"))
+
+# Remove LaTeX log files
+unlink(here("Exercises", "*.log"))
+unlink(here("Exercises", "*.tex"))
+unlink(here("Exercises", "*_files"), recursive = TRUE)
 
 # Create a PDF version of the slides to share
 library(webshot)
@@ -31,6 +47,7 @@ webshot(htmlSlides, here("Presentation", "images", "Rmarkdown-Intro-Workshop-Tit
 unlink(here("Share/"), recursive = TRUE)
 dir.create(here("Share"))
 dir.create(here("Share", "Exercise"))
+dir.create(here("Share", "Solutions"))
 dir.create(here("Share", "Slides-Notes"))
 
 # Populate the Share directories
@@ -43,7 +60,14 @@ file.copy(here("Presentation", "Rmarkdown-Intro-Workshop.pdf"),
 download.file("https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf",
               here("Share", "Slides-Notes", "RStudio-rmarkdown-2.0.pdf"))
 
-file.copy(here("Exercises", "CW-Report-Target.html"),
+## Create "Exercises"
+file.copy(here("Exercises", "CW-Report-Target-HTML.html"),
+          here("Share", "Exercise"), overwrite = TRUE)
+
+file.copy(here("Exercises", "CW-Report-Target-PDF.pdf"),
+          here("Share", "Exercise"), overwrite = TRUE)
+
+file.copy(here("Exercises", "CW-Report-Target-prettydoc.html"),
           here("Share", "Exercise"), overwrite = TRUE)
 
 file.copy(here("Exercises", "CW-Slides-Target.html"),
@@ -61,5 +85,11 @@ file.rename(here("Share", "Exercise", "Exercise.Rproj"),
 # Not beautiful: Using setwd to overcome the full paths issue above.
 setwd(here())
 zip(here("Share", "RmarkdownWS.zip"), "./Share/", extras = "-FS")
+
+# Create Solutions zip file
+dir.create(here("RmdWS-Solutions"))
+file.copy(here("Exercises", "."), here("RmdWS-Solutions"), recursive = TRUE)
+zip(here("Share", "RmdWS-Solutions.zip"), "./RmdWS-Solutions/", extras = "-FS")
+unlink(here("RmdWS-Solutions/"), recursive = TRUE)
 
 setwd(here())

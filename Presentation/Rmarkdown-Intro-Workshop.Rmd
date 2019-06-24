@@ -133,6 +133,7 @@ knitr::include_graphics("images/ScreenShots/Rmarkdown-HTML-Example-01.png")
 ---
 class: center
 <div class="Rmarkdown-hex-right-top"></div> 
+<div class="blogdown-left-top"></div> 
 
 # HTML Website
 
@@ -143,6 +144,7 @@ knitr::include_graphics("images/ScreenShots/Rmarkdown-HTML-Example-02.png")
 ---
 class: center
 <div class="Rmarkdown-hex-right-top"></div> 
+<div class="bookdown-left-top"></div> 
 
 # HTML Book
 
@@ -163,6 +165,7 @@ knitr::include_graphics("images/ScreenShots/Rmarkdown-PDF-Example-01.png")
 ---
 class: center
 <div class="Rmarkdown-hex-right-top"></div> 
+<div class="bookdown-left-top"></div> 
 
 # PDF Book
 
@@ -183,6 +186,7 @@ knitr::include_graphics("images/ScreenShots/Rmarkdown-PDF-Example-03.png")
 ---
 class: center
 <div class="Rmarkdown-hex-right-top"></div> 
+<div class="xaringan-hex-left-top"></div> 
 
 # HTML Presentation
 

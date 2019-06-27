@@ -23,7 +23,7 @@ to see the HTML slides.**
 - Use the workshop presentation (HTML version):
     + https://github.com/saghirb/Rmarkdown-Intro-Workshop/tree/master/Presentation
 - Distribute the PDF version to participants:
-    + https://github.com/saghirb/Rmarkdown-Intro-Workshop/raw/master/Presentation/GRmarkdown-Intro-Workshop.pdf
+    + https://github.com/saghirb/Rmarkdown-Intro-Workshop/raw/master/Presentation/Rmarkdown-Intro-Workshop.pdf
 
 
 ## Re-creating the Workshop Materials.

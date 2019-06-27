@@ -5,7 +5,7 @@ Learn (or use to teach) how to work with R markdown through RStudio.
 **Click [here](https://saghirb.github.io/shared/Rmarkdown-Intro-Workshop.html) 
 to see the HTML slides.**
 
-![Title Slide](https://saghirb.github.io/shared/Rmarkdown-Intro-Workshop.html)
+[![Title Slide](https://saghirb.github.io/shared/Rmarkdown-Intro-Workshop.html)](https://saghirb.github.io/shared/Rmarkdown-Intro-Workshop.html)
 
 # Target Audience
 

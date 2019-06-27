@@ -1,11 +1,11 @@
 # Introduction to R Markdown - Workshop
 
-Learn (or teach) how to work with R markdown through RStudio.
+Learn (or use to teach) how to work with R markdown through RStudio.
 
-Click [here](https://saghirb.github.io/shared/Rmarkdown-Intro-Workshop.html) 
-to see the HTML slides.
+**Click [here](https://saghirb.github.io/shared/Rmarkdown-Intro-Workshop.html) 
+to see the HTML slides.**
 
-![Title Slide](Presentation/images/Rmarkdown-Intro-Workshop-Title-Slide.png)
+![Title Slide](https://saghirb.github.io/shared/Rmarkdown-Intro-Workshop.html)
 
 # Target Audience
 

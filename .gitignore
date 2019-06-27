@@ -7,4 +7,4 @@ notes.txt
 *.pdf
 Exercises/*.Rmd
 !Exercises/*.html
-!Presentation/*.html
+!Presentation/*

@@ -5,7 +5,7 @@ Learn (or use to teach) how to work with R markdown through RStudio.
 **Click [here](https://saghirb.github.io/shared/Rmarkdown-Intro-Workshop.html) 
 to see the HTML slides.**
 
-![Title Slide](Presentation/images/Rmarkdown-Intro-Workshop-Title-Slide.png)(https://saghirb.github.io/shared/Rmarkdown-Intro-Workshop.html)
+[![Title Slide](Presentation/images/Rmarkdown-Intro-Workshop-Title-Slide.png)](https://saghirb.github.io/shared/Rmarkdown-Intro-Workshop.html)
 
 # Target Audience
 
@@ -39,7 +39,7 @@ the [University of Lisbon](https://ciencias.ulisboa.pt/en).
     and [Monica Eusébio](https://github.com/meusebio).
 
 
-# Announcements
+## Announcements
 
 A reminder of announcements for this repository.
 

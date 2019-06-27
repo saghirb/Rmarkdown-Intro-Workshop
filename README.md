@@ -20,11 +20,13 @@ to see the HTML slides.**
 
 ## Running the Workshop 
 
-- Use the workshop presentation (HTML version):
++ Use the workshop presentation (HTML version):
     + https://github.com/saghirb/Rmarkdown-Intro-Workshop/tree/master/Presentation
-- Distribute the PDF version to participants:
++ Distribute the PDF version to the participants:
     + https://github.com/saghirb/Rmarkdown-Intro-Workshop/raw/master/Presentation/Rmarkdown-Intro-Workshop.pdf
-
++ Distribute the exercises zip file to the participants from:
+    +  https://github.com/saghirb/Rmarkdown-Intro-Workshop/tree/master/Share
+    + At the end of the workshop share the solutions zip file.
 
 ## Re-creating the Workshop Materials.
 

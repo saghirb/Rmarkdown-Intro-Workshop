@@ -62,13 +62,17 @@ class: middle, center
 
 &nbsp;
 
-<br><br>
+<br>
 
 # Introduction to R Markdown
 
 <br>
 
 ### Saghir Bashir<br><br>14th June 2019
+
+<br>
+
+https://github.com/saghirb/Rmarkdown-Intro-Workshop
 
 ---
 class: inverse, middle, center

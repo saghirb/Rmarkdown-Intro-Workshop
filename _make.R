@@ -46,9 +46,10 @@ webshot(htmlSlides, here("Presentation", "images", "Rmarkdown-Intro-Workshop-Tit
 # First empty the share folder and recreate the directory structure.
 unlink(here("Share/"), recursive = TRUE)
 dir.create(here("Share"))
-dir.create(here("Share", "Exercise"))
-dir.create(here("Share", "Solutions"))
+dir.create(here("Share", "Exercises"))
+#dir.create(here("Share", "Solutions"))
 dir.create(here("Share", "Slides-Notes"))
+unlink(here("Exercises", "*.Rproj"))
 
 # Populate the Share directories
 file.copy(here("Presentation", "Rmarkdown-Intro-Workshop.html"),
@@ -60,26 +61,30 @@ file.copy(here("Presentation", "Rmarkdown-Intro-Workshop.pdf"),
 download.file("https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf",
               here("Share", "Slides-Notes", "RStudio-rmarkdown-2.0.pdf"))
 
+# Creating (initialising) an RStudio project in the Exercises directory
+rstudioapi::initializeProject(path = here("Exercises"))
+file.rename(here("Exercises", "Exercises.Rproj"),
+            here("Exercises", "CW-Summary.Rproj"))
+
 ## Create "Exercises"
 file.copy(here("Exercises", "CW-Report-Target-HTML.html"),
-          here("Share", "Exercise"), overwrite = TRUE)
+          here("Share", "Exercises"), overwrite = TRUE)
 
 file.copy(here("Exercises", "CW-Report-Target-PDF.pdf"),
-          here("Share", "Exercise"), overwrite = TRUE)
+          here("Share", "Exercises"), overwrite = TRUE)
 
 file.copy(here("Exercises", "CW-Report-Target-prettydoc.html"),
-          here("Share", "Exercise"), overwrite = TRUE)
+          here("Share", "Exercises"), overwrite = TRUE)
 
 file.copy(here("Exercises", "CW-Slides-Target.html"),
-          here("Share", "Exercise"), overwrite = TRUE)
+          here("Share", "Exercises"), overwrite = TRUE)
 
 file.copy(here("Exercises", "ChickWeight.csv"),
-          here("Share", "Exercise"), overwrite = TRUE)
+          here("Share", "Exercises"), overwrite = TRUE)
 
-# Creating (initialising) an RStudio project
-rstudioapi::initializeProject(path = here("Share", "Exercise"))
-file.rename(here("Share", "Exercise", "Exercise.Rproj"),
-            here("Share", "Exercise", "CW-Summary.Rproj"))
+file.copy(here("Exercises", "CW-Summary.Rproj"),
+          here("Share", "Exercises"), overwrite = TRUE)
+
 
 # Using here() function with zip results in full paths in the zip files :(
 # Not beautiful: Using setwd to overcome the full paths issue above.
@@ -91,5 +96,8 @@ dir.create(here("RmdWS-Solutions"))
 file.copy(here("Exercises", "."), here("RmdWS-Solutions"), recursive = TRUE)
 zip(here("Share", "RmdWS-Solutions.zip"), "./RmdWS-Solutions/", extras = "-FS")
 unlink(here("RmdWS-Solutions/"), recursive = TRUE)
+
+# Clean the Share directory
+unlink(here("Share/*/"), recursive = TRUE)
 
 setwd(here())

@@ -1,6 +1,9 @@
 ## Run all files to prepare "Introduction to R Markdown" workshop
 
 # Setup
+library(webshot)
+library(pdftools)
+library(magick)
 library(here)
 here()
 
@@ -25,13 +28,44 @@ rmarkdown::render(here("Exercises", "CW-Slides-Target.Rmd"),
                   clean = TRUE, envir = new.env(),
                   output_dir = here("Exercises"))
 
+# Create PNGs to be used in the Exercise sheet to share with participants.
+wsWidth <- 1280
+wsHeight <- 800
+
+webshot(url = here("Exercises", "CW-Report-Target-HTML.html"),
+        here("Exercises", "images", "CW-Report-Target-HTML.png"),
+        vwidth = wsWidth,
+        vheight = wsHeight,
+        delay = 0.8,
+        cliprect = c(0, 0, wsWidth, wsHeight))
+
+webshot(url = here("Exercises", "CW-Report-Target-prettydoc.html"),
+        here("Exercises", "CW-Report-Target-prettydoc.png"),
+        vwidth = wsWidth,
+        vheight = wsHeight,
+        delay = 0.8,
+        cliprect = c(0, 0, wsWidth, wsHeight))
+
+webshot(url = here("Exercises", "CW-Slides-Target.html"),
+        here("Exercises", "images", "CW-Slides-Target.png"),
+        vwidth = wsWidth,
+        vheight = wsHeight,
+        delay = 0.8,
+        cliprect = c(0, 0, wsWidth, wsHeight))
+
+pdfTemp <- tempfile()
+pdf_convert(here("Exercises", "CW-Report-Target-PDF.pdf"),
+            "png", pages = 1, dpi = 155, filenames = pdfTemp) %>%
+  image_read() %>%
+  image_crop(geometry_area(900, 1200, 200, 200), repage = FALSE) %>%
+  image_write(., path=here("Exercises", "images", "CW-Report-Target-PDF.png"), format="png")
+
 # Remove LaTeX log files
 unlink(here("Exercises", "*.log"))
 unlink(here("Exercises", "*.tex"))
 unlink(here("Exercises", "*_files"), recursive = TRUE)
 
 # Create a PDF version of the slides to share
-library(webshot)
 htmlSlides <- paste0("file://",
                     normalizePath(here("Presentation",
                                        "Rmarkdown-Intro-Workshop.html")))

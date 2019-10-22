@@ -40,7 +40,7 @@ webshot(url = here("Exercises", "CW-Report-Target-HTML.html"),
         cliprect = c(0, 0, wsWidth, wsHeight))
 
 webshot(url = here("Exercises", "CW-Report-Target-prettydoc.html"),
-        here("Exercises", "CW-Report-Target-prettydoc.png"),
+        here("Exercises", "images", "CW-Report-Target-prettydoc.png"),
         vwidth = wsWidth,
         vheight = wsHeight,
         delay = 0.8,
@@ -57,7 +57,7 @@ pdfTemp <- tempfile()
 pdf_convert(here("Exercises", "CW-Report-Target-PDF.pdf"),
             "png", pages = 1, dpi = 155, filenames = pdfTemp) %>%
   image_read() %>%
-  image_crop(geometry_area(900, 1200, 200, 200), repage = FALSE) %>%
+  image_crop(geometry_area(900, 1150, 200, 200), repage = FALSE) %>%
   image_write(., path=here("Exercises", "images", "CW-Report-Target-PDF.png"), format="png")
 
 # Remove LaTeX log files

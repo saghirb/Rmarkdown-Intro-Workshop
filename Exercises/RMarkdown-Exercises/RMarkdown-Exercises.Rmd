@@ -1,0 +1,221 @@
+---
+title: "Exercise Sheet: R Markdown"
+
+# Use letters for affiliations
+author:
+  - name: Saghir Bashir
+#     affiliation: a
+# address:
+#   - code: a
+#     address: ilustat \url{www.ilustat.com}
+
+# For footer text  TODO(fold into template, allow free form two-authors)
+# I will use it to place the copyright notice (Creative Comments Share Alike)
+lead_author_surname: "[CC BY SA](https://creativecommons.org/licenses/by-sa/4.0/) [ilustat](http://ilustat.com/) $\\bullet$ [info@ilustat.com](mailto:info@ilustat.com)"
+
+# Place DOI URL or CRAN Package URL here
+doi: "Learn more at http://ilustat.com/resources/"
+
+# Abstract
+abstract: |
+   This exercise sheet is designed to help you understand the key concepts that 
+   are essential to learning and using R Markdown. The key requirement is to have 
+   both R and RStudio installed. Follow the instructions below to learn more. 
+   Have fun!
+  
+# Optional: Acknowledgements
+acknowledgements: |
+  The R project (https://www.r-project.org) for a great product.
+  
+# Optional: One or more keywords
+# keywords:
+#   - R
+#   - Base R
+#   - Statistics
+#   - Data Science
+
+# Paper size for document, values of letterpaper and a4paper
+papersize: a4
+
+# Font size of the document, values of 9pt (default), 10pt, 11pt and 12pt
+fontsize: 9pt
+
+# Optional: Force one-column layout, default is two-column
+#one_column: true
+
+# Optional: Enables lineno mode, but only if one_column mode is also true
+#lineno: true
+
+# Optional: Enable one-sided layout, default is two-sided
+# one_sided: true
+
+# Optional: Enable section numbering, default is unnumbered
+numbersections: true
+
+# Optional: Specify the depth of section number, default is 5
+secnumdepth: 3
+
+# Optional: Skip inserting final break between acknowledgements, default is false
+skip_final_break: true
+
+# Optional: Bibliography 
+# bibliography: pinp
+
+# Optional: Enable a 'Draft' watermark on the document
+watermark: FALSE
+
+# Customize footer, eg by referencing the vignette
+footer_contents: "Exercise Sheet: R Markdown"
+
+# Produce a pinp document
+output: 
+  pinp::pinp:
+    fig_caption: yes
+    collapse: true
+    keep_tex: false
+---
+
+```{r setup, include=FALSE, purl=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE) #, knitr.table.format = 'latex')
+options(width=45)
+knitr::opts_chunk$set(fig.pos = 'H')
+library(here)
+library(knitr)
+```
+
+## Be Brave and Experiment 
+
+Making mistakes and experimenting is an essential part of learning R.
+You can recover from most mistakes (e.g. by restarting R). To do this 
+"safely" start with a *fresh* R session without any other data loaded 
+(otherwise you could lose it). 
+
+## Workshop Materials
+
+Download the workshop materials using the following link:
+
++ https://ilustat.com/shared/RmarkdownWS.zip
+
+## Getting Started with the Exercises
+
+After unzipping the downloaded file Navigate to `Share\Exercises` and double 
+click on `CW-Summary.Rproj` which should automatically open RStudio (with the
+right set up for you to do the exercises).
+
+## Objective
+
+The key objective is to create an R Markdown file (`.Rmd`) to recreate the following:
+
+1. CW-Report-Target-HTML.html
+2. CW-Report-Target-prettydoc.html
+3. CW-Slides-Target.html
+4. CW-Report-Target-PDF.pdf
+
+## Copy and Paste
+
+It is perfectly fine to copy and paste from the target file into your `.Rmd` files. 
+The objective for you to understand the thinking behind R Markdown.
+
+
+## Chick Weight Data
+
+TEXT HERE!S
+
+## Exercise 1 
+
+The objective of this exercise is to recreate `CW-Report-Target-HTML.html` in your 
+`Exercises` folder.
+
+```{r CW-Report-Target-HTML, out.width="3.4in", fig.show='hold', fig.cap="\\label{fig:CW-HTML}CW-Report-Target-HTML.html", echo=FALSE}
+include_graphics(here("images", "CW-Report-Target-HTML.png"))
+```
+
+Create a new R Markdown `HTML` document and save it as `My-Report-Target-HTML.Rmd`:
+
+```{r New-R-Markdown-HTML, out.width="2.8in", fig.show='hold', fig.cap="\\label{fig:Rmd-HTML}New R Markdown HTML document", echo=FALSE}
+include_graphics(here("images", "New-R-Markdown-HTML.png"))
+```
+
+To get the orange themed navigation system use the following as your `YAML` header.
+
+```
+---
+title: "Chick Weight Report - Target"
+author: "Your Name Here!"
+date: "`r format(Sys.time(), '%a %d %b %Y (%H:%M:%S)')`"
+output:
+  html_document:
+    theme: united
+    highlight: tango
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      collapsed: no
+      smooth_scroll: no
+---
+```
+
+### Themes & Highlights
+
+Try experimenting with different `theme` and `highlight` settings in the `YAML` 
+header. Keep the one you like.
+
++ `theme` options: `default`, `cerulean`, `journal`, `flatly`, `darkly`, readable, 
+`spacelab`, united, `cosmo`, lumen, `paper`, `sandstone`, `simplex`, and `yeti`.
++ `highlight` options: `default`, `tango`, `pygments`, `kate`, `monochrome`, `espresso`, 
+`zenburn`, `haddock`, `breezedark` and `textmate`.
+
+See R theme gallery at http://www.datadreaming.org/post/r-markdown-theme-gallery/ 
+
+
+## Exercise 2
+
+The objective of this exercise is to recreate `CW-Report-Target-prettydoc.html`:
+
+```{r CW-Report-Target-prettydoc, out.width="3.4in", fig.show='hold', fig.cap="\\label{fig:CW-prettydoc}CW-Report-Target-prettydoc.html", echo=FALSE}
+include_graphics(here("images", "CW-Report-Target-prettydoc.png"))
+```
+
+### First install `prettydoc` package
+
+```{r install-prettydoc, echo=TRUE, eval=FALSE}
+install.packages("prettydoc")
+```
+
+Create a new R Markdown `prettydoc` document `From Template` and save it as `My-Report-Target-prettydoc.Rmd` in your `Exercises` folder.
+
+```{r New-R-Markdown-prettydoc, out.width="2.8in", fig.show='hold', fig.cap="\\label{fig:Rmd-prettydoc}New R Markdown `prettydoc` document", echo=FALSE}
+include_graphics(here("images", "New-R-Markdown-prettydoc.png"))
+```
+
+
+## Exercise 3 
+
+The objective of this exercise is to recreate `CW-Slides-Target.html`:
+
+```{r CW-Slides-Target, out.width="3.4in", fig.show='hold', fig.cap="\\label{fig:CW-Slides-Target}CW-Slides-Target.html", echo=FALSE}
+include_graphics(here("images", "CW-Slides-Target.png"))
+```
+
+Create a new `ioslide` R Markdown document from `Presentation` and save it as `My-Slides-Target.Rmd` in your `Exercises` folder.
+
+```{r New-R-Markdown-Slides, out.width="2.8in", fig.show='hold', fig.cap="\\label{fig:Rmd-slides}New R Markdown `ioslide` HTML presentation", echo=FALSE}
+include_graphics(here("images", "New-R-Markdown-Slides.png"))
+```
+
+
+## Exercise 4 
+
+The objective of this exercise is to recreate `CW-Report-Target-PDF.pdf`:
+
+```{r CW-Report-Target-PDF, out.width="3.1in", fig.show='hold', fig.cap="\\label{fig:CW-Report-Target-PDF}CW-Report-Target-PDF.html", echo=FALSE}
+include_graphics(here("images", "CW-Report-Target-PDF.png"))
+```
+
+Create a new R Markdown `PDF` document and save it as `My-Report-Target-PDF.Rmd`:
+
+```{r New-R-Markdown-PDF, out.width="2.8in", fig.show='hold', fig.cap="\\label{fig:Rmd-PDF}New R Markdown PDF document", echo=FALSE}
+include_graphics(here("images", "New-R-Markdown-PDF.png"))
+```
+
+

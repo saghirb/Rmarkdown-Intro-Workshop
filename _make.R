@@ -5,7 +5,7 @@ library(webshot)
 library(pdftools)
 library(magick)
 library(here)
-here()
+set_here()
 
 # Render the presentation and exercises.
 rmarkdown::render(here("Exercises", "CW-Report-Target-PDF.Rmd"),
@@ -53,12 +53,16 @@ webshot(url = here("Exercises", "CW-Slides-Target.html"),
         delay = 0.8,
         cliprect = c(0, 0, wsWidth, wsHeight))
 
-pdfTemp <- tempfile()
 pdf_convert(here("Exercises", "CW-Report-Target-PDF.pdf"),
-            "png", pages = 1, dpi = 155, filenames = pdfTemp) %>%
+            "png", pages = 1, dpi = 155, filenames = tempfile()) %>%
   image_read() %>%
-  image_crop(geometry_area(900, 1150, 200, 200), repage = FALSE) %>%
+  image_crop(geometry_area(1000, 1150, 150, 150), repage = FALSE) %>%
   image_write(., path=here("Exercises", "images", "CW-Report-Target-PDF.png"), format="png")
+
+# Render the exericse sheet
+rmarkdown::render(here("Exercises", "RMarkdown-Exercises.Rmd"),
+                  clean = TRUE, envir = new.env(),
+                  output_dir = here("Exercises"))
 
 # Remove LaTeX log files
 unlink(here("Exercises", "*.log"))
@@ -119,6 +123,8 @@ file.copy(here("Exercises", "ChickWeight.csv"),
 file.copy(here("Exercises", "CW-Summary.Rproj"),
           here("Share", "Exercises"), overwrite = TRUE)
 
+file.copy(here("Exercises", "RMarkdown-Exercises.pdf"),
+          here("Share", "Exercises"), overwrite = TRUE)
 
 # Using here() function with zip results in full paths in the zip files :(
 # Not beautiful: Using setwd to overcome the full paths issue above.

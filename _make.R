@@ -56,7 +56,7 @@ webshot(url = here("Exercises", "CW-Slides-Target.html"),
 pdf_convert(here("Exercises", "CW-Report-Target-PDF.pdf"),
             "png", pages = 1, dpi = 155, filenames = tempfile()) %>%
   image_read() %>%
-  image_crop(geometry_area(1000, 1150, 150, 150), repage = FALSE) %>%
+  image_crop(geometry_area(1000, 750, 150, 150), repage = FALSE) %>%
   image_write(., path=here("Exercises", "images", "CW-Report-Target-PDF.png"), format="png")
 
 # Render the exericse sheet
@@ -78,9 +78,10 @@ webshot(htmlSlides, here("Presentation", "Rmarkdown-Intro-Workshop.pdf"),
 
 # Create image of first slide to include as part of README.md
 webshot(htmlSlides, here("Presentation", "images", "Rmarkdown-Intro-Workshop-Title-Slide.png"),
-        delay = 5, vwidth = 640, vheight = 360, zoom = 1.5, cliprect = "viewport")
+        delay = 1, vwidth = 640, vheight = 360, zoom = 1.5, cliprect = "viewport")
 
-# Create zip files to share with participants
+
+  # Create zip files to share with participants
 # First empty the share folder and recreate the directory structure.
 unlink(here("Share/"), recursive = TRUE)
 dir.create(here("Share"))

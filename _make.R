@@ -79,11 +79,11 @@ htmlSlides <- paste0("file://",
                     normalizePath(here("Presentation",
                                        "Rmarkdown-Intro-Workshop.html")))
 webshot(htmlSlides, here("Presentation", "Rmarkdown-Intro-Workshop.pdf"),
-        vwidth = 960, vheight = 540, zoom = 1.5, cliprect = "viewport")
+        vwidth = 960, vheight = 540, zoom = 1.0, cliprect = "viewport")
 
 # Create image of first slide to include as part of README.md
 webshot(htmlSlides, here("Presentation", "images", "Rmarkdown-Intro-Workshop-Title-Slide.png"),
-        delay = 10, vwidth = 640, vheight = 360, zoom = 1.5, cliprect = "viewport")
+        delay = 10, vwidth = 640, vheight = 360, zoom = 1.0, cliprect = "viewport")
 
 
   # Create zip files to share with participants

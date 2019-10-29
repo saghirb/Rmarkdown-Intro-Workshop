@@ -1,0 +1,147 @@
+---
+title: "Chick Weight Report - Target"
+author: "Saghir Bashir"
+date: "`r format(Sys.time(), '%a %d %b %Y (%H:%M:%S)')`"
+output:
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
+documentclass: article
+classoption: a4paper
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+options(knitr.table.format = "latex")
+options(tinytex.verbose = TRUE)
+```
+
+# Chick Weight Data
+
+> *"The body weights of the chicks were measured at birth and every second day thereafter 
+until day 20. They were also measured on day 21. There were four groups of chicks on 
+different protein diets."*
+
+## The Data
+
+There are `r nrow(ChickWeight)` observations (rows) and `r ncol(ChickWeight)` variables:
+
+* `Chick` -- unique ID for each chick. 
+* `Diet` -- one of four protein diets. 
+* `Time` --  number of days since birth. 
+* `weight` -- body weight of chick in grams.
+
+## Objective
+
+Investigate the *effect of diet on the weight over time*.
+
+# Importing the Data
+
+```{r readCW, message=FALSE}
+library(data.table)
+cw <- fread("ChickWeight.csv")
+cw
+```
+
+## Preparing the Data
+
+Before we continue, we have to make an important change to the `cw` dataset by making
+`Diet` and `Time` *factor variables*. This means that R will treat them as categorical
+variables instead of continuous variables. It will simplify our coding. 
+
+```{r cwfactor}
+setnames(cw, c("weight"), c("Weight"))
+cw[, Group := factor(paste0("Diet ", Diet))][
+   , Time := factor(Time)][
+   , Diet:=NULL]
+setcolorder(cw, c("Group", "Chick", "Time", "Weight"))
+str(cw)
+cw
+```
+
+## Data Checks
+
+Both of these show that the dataset has `r nrow(cw)` observations and `r ncol(cw)` 
+variables as we would expect and as compared to the original data file `ChicWeight.csv`. 
+
+# Chick Weight: Data Visualisation
+
+## Box-whisker plot
+
+To see variation between the different diets we will look at a box-whisker plot 
+over time by diet. The number of chicks per diet is relatively low to produce this 
+plot so interpret with caution.
+```{r boxPlot}
+library(ggplot2)
+ggplot(cw, aes(Time, Weight, colour=Group)) +
+  facet_wrap(~Group) +
+  geom_boxplot() +
+  theme(legend.position = "none") +
+  ggtitle("Chick Weight over Time by Diet")
+```
+
+## Scatter Plot with Mean Lines
+
+
+```{r meanlinePlot}
+ggplot(cw, aes(Time, Weight, group=Group, colour=Group)) +
+  facet_wrap(~Group) +
+  geom_jitter() +
+  stat_summary(fun.y="mean", geom="line", colour="black") +
+  theme(legend.position = "none") +
+  ggtitle("Chick Weight over Time by Diet") + 
+  xlab("Time (days)") +
+  ylab("Weight (grams)")
+```
+
+## Interpretation
+
+Diet 3 seems to have the highest "average" weight gain but it has more variation 
+than diet 4. 
+
+
+# Chick Weight: Summary Statistics
+
+In this section, we will quantify the effects of the diets using summary statistics. 
+We start by looking at the number of observations and the mean of weight grouped 
+by **diet** and **time**.
+
+```{r dtSum}
+cws <- cw[ ,
+          .(N      = .N, 
+            Mean   = mean(Weight),
+            SDev   = sd(Weight),
+            Median = median(Weight),
+            Min    = min(Weight),
+            Max    = max(Weight)  ),
+          by=.(Group, Time)]
+```
+
+
+```{r prettyTable}
+# Pretty Table for days 0 and 21
+library(magrittr)
+library(knitr)
+library(kableExtra)
+
+# The table is exactly like the HTML version but close enough.
+cws[Time %in% c(0, 21)] %>% 
+  kable(digits = c(0, 0, 0, 1, 1, 2, 0, 0)) %>% 
+  kable_styling(position = "center") %>%
+  collapse_rows(columns = 1, latex_hline = "none", valign = "top")
+```
+
+## Interpretation
+
+This summary table offers the same interpretation as before, namely that diet 3 has the 
+highest mean and median weights at day 21 but a higher variation than group 4.
+However it should be noted that at day 21, diet 1 lost 4 chicks from 20 that started 
+and diet 4 lost 1 from 10. This could be a sign of some issues (e.g. safety).
+
+## Limitations of data
+
+Information on bias reduction measures is not given and is not available either.
+We don't know if the chicks were fairly and appropriately randomised to the diets and 
+whether the groups are comparable (e.g., same breed of chicks, sex (gender) balance). 
+Hence we should be very cautious with drawing conclusion and taking actions with this 
+data.

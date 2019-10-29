@@ -6,6 +6,5 @@
 notes.txt
 *.html
 *.pdf
-Exercises/*.Rmd
 !Exercises/*.html
 !Presentation/*

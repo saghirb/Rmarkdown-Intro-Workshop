@@ -5,7 +5,7 @@ library(webshot)
 library(pdftools)
 library(magick)
 library(here)
-set_here()
+here()
 
 # Render the presentation and exercises.
 rmarkdown::render(here("Exercises", "CW-Report-Target-PDF.Rmd"),
@@ -60,9 +60,12 @@ pdf_convert(here("Exercises", "CW-Report-Target-PDF.pdf"),
   image_write(., path=here("Exercises", "images", "CW-Report-Target-PDF.png"), format="png")
 
 # Render the exericse sheet
-rmarkdown::render(here("Exercises", "RMarkdown-Exercises.Rmd"),
-                  clean = TRUE, envir = new.env(),
-                  output_dir = here("Exercises"))
+  setwd(here("Exercises"))
+  getwd()
+  rmarkdown::render("RMarkdown-Exercises.Rmd",
+                    clean = TRUE, envir = new.env())
+  setwd(here())
+  getwd()
 
 # Remove LaTeX log files
 unlink(here("Exercises", "*.log"))
@@ -78,7 +81,7 @@ webshot(htmlSlides, here("Presentation", "Rmarkdown-Intro-Workshop.pdf"),
 
 # Create image of first slide to include as part of README.md
 webshot(htmlSlides, here("Presentation", "images", "Rmarkdown-Intro-Workshop-Title-Slide.png"),
-        delay = 1, vwidth = 640, vheight = 360, zoom = 1.5, cliprect = "viewport")
+        delay = 10, vwidth = 640, vheight = 360, zoom = 1.5, cliprect = "viewport")
 
 
   # Create zip files to share with participants

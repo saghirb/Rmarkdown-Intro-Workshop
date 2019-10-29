@@ -1,5 +1,7 @@
 ## Run all files to prepare "Introduction to R Markdown" workshop
 
+makeStart <- Sys.time()
+
 # Setup
 library(webshot)
 library(pdftools)
@@ -145,3 +147,8 @@ unlink(here("RmdWS-Solutions/"), recursive = TRUE)
 unlink(here("Share/*/"), recursive = TRUE)
 
 setwd(here())
+
+# Actual time taken to run this file.
+makeEnd <- Sys.time()
+difftime(makeEnd, makeStart)
+
